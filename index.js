@@ -12,7 +12,7 @@ const app = express();
 const gifts = require('./gift.json');
 const config = require('./config.json');
 
-if (config.username.includes("@")) config.username.replace("@", ""); // Убираю @ из ника
+if (config.username.includes("@")) config.username = config.username.replace("@", ""); // Убираю @ из ника
 
 
 // Дефолтный видос
