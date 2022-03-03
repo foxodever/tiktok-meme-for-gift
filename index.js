@@ -9,8 +9,8 @@ const app = express();
 /*
 Конфиги
 */
-const gifts = require('./gift.json');
-const config = require('./config.json');
+const gifts = JSON.parse(fs.readFileSync("gift.json", "utf-8"));
+const config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
 
 if (config.username.includes("@")) config.username = config.username.replace("@", ""); // Убираю @ из ника
 
@@ -85,9 +85,10 @@ let tiktokChatConnection = new WebcastPushConnection(config.username);
 /*
 Подклчюаемся
 */
+
 tiktokChatConnection.connect().then(state => {}).catch(err => {
     // Ловим ошибку
-    console.error('Не удалось подключится к комнате', err);
+    console.error('Не удалось подключится к комнате ' + config.username, err);
     const keypress = async() => {
         process.stdin.setRawMode(true)
         return new Promise(resolve => process.stdin.once('data', () => {
