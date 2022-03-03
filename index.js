@@ -95,7 +95,21 @@ let tiktokChatConnection = new WebcastPushConnection(config.username);
 tiktokChatConnection.connect().then(state => {}).catch(err => {
     // Ловим ошибку
     console.error('Не удалось подключится к комнате', err);
-    process.exit("-1")
+    const keypress = async() => {
+        process.stdin.setRawMode(true)
+        return new Promise(resolve => process.stdin.once('data', () => {
+            process.stdin.setRawMode(false)
+            resolve()
+        }))
+    }
+
+    ;
+    (async() => {
+        console.log('  Инфо  | Нажмите любую клавишу для закрытия')
+        await keypress()
+        console.log('bye')
+
+    })().then(process.exit)
 })
 
 /*
@@ -112,7 +126,21 @@ tiktokChatConnection.on('gift', data => {
 tiktokChatConnection.on('streamEnd', () => {
     console.clear();
     console.log("Стрим закончился");
-    process.exit(1);
+    const keypress = async() => {
+        process.stdin.setRawMode(true)
+        return new Promise(resolve => process.stdin.once('data', () => {
+            process.stdin.setRawMode(false)
+            resolve()
+        }))
+    }
+
+    ;
+    (async() => {
+        console.log('  Инфо  | Нажмите любую клавишу для закрытия')
+        await keypress()
+        console.log('bye')
+
+    })().then(process.exit)
 })
 
 
@@ -120,5 +148,7 @@ tiktokChatConnection.on('streamEnd', () => {
 Запуск HTTP сервера
 */
 app.listen(config.port, () => {
-    console.log("HTTP сервер запущен на порту " + config.port)
+    console.log("  Инфо  | HTTP сервер запущен на порту " + config.port)
+    console.log("  Инфо  | By Foxodever")
+    console.log("  Инфо  | foxodever.com")
 })
