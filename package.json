@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "tiktok-livestream-chat-connector": "^0.9.12"
+  },
+  "name": "tiktok-live",
+  "version": "1.0.0",
+  "description": "Те самые стримы за подарки",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foxodever/tiktok-meme-for-gift.git"
+  },
+  "author": "Foxodever",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foxodever/tiktok-meme-for-gift/issues"
+  },
+  "homepage": "https://github.com/foxodever/tiktok-meme-for-gift#readme"
+}
