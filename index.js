@@ -40,6 +40,13 @@ app.get('/', function(req, res) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 obr()
+function isValidUrl(string) {
+    if(string.includes("file")) {
+        return true;
+    } else {
+        return false;
+    }
+};
 function obr() {
     $.ajax({
         type: "POST",
@@ -51,7 +58,7 @@ function obr() {
         setTimeout(obr, 1000);
         if(r.includes(".mp4")) {
             if($('#info').html().includes(r) || $('#info').html().includes(encodeURIComponent(btoa(r)))) return;
-            if(!string.includes('file')) {
+            if(isValidUrl(r)) {
                 $('#info').html(\`
                 <video id="vid" width="100%" controls="none">
                  <source src="\`+r+\`" type='video/mp4'>
@@ -67,7 +74,7 @@ function obr() {
                 document.getElementById("vid").play();
             })
         } else {
-            if(!string.includes('file')) {
+            if(isValidUrl(r)) {
                 $('#info').html("<img style=\\"max-width:100%\\" src='"+r+"'>");
             } else {
                 $('#info').html("<img style=\\"max-width:100%\\" src='/static?p="+encodeURIComponent(btoa(r))+"'>");
