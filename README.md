@@ -1,5 +1,5 @@
-For English users:
-You can receive support here: https://discord.gg/8bzEcShgpe
+## For English users:
+You can receive support here: https://discord.gg/8bzEcShgpe \n
 Telegram channel: https://t.me/softforlives
 # tiktok-meme-for-gift
 Те самые стримы с мемами за подарки
